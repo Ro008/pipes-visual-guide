@@ -1,0 +1,180 @@
+<div class="container my-3">
+  <h2>Pipes Demo App</h2>
+  <hr>
+
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Variable</th>
+        <th scope="col">Pipe code</th>
+        <th scope="col">Result</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td>{{ name }} </td>
+        <td>uppercase </td>
+        <td>{{ name | uppercase }} </td>
+      </tr>
+
+      <tr>
+        <td>{{ name }} </td>
+        <td>lowercase </td>
+        <td>{{ name | lowercase }} </td>
+      </tr>
+
+      <tr>
+        <td>{{ name }} </td>
+        <td>slice:4 </td>
+        <td>{{ name | slice:4 }} </td>
+      </tr>
+
+      <tr>
+        <td>{{ name }} </td>
+        <td>slice:0:4 </td>
+        <td>{{ name | slice:0:4 }} </td>
+      </tr>
+
+      <tr>
+        <td>{{ myArray }} </td>
+        <td>slice:0:4 </td>
+        <td>{{ myArray | slice:0:4 }} </td>
+      </tr>
+
+      <tr>
+        <td>{{ myArray }} </td>
+        <td>*ngFor="let number of myArray | slice:0:3" </td>
+        <td>
+          <ul>
+            <li *ngFor="let number of myArray | slice:0:3">{{ number }} </li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr>
+        <td>{{ PI }} </td>
+        <td>number</td>
+        <td>{{ PI | number }} </td>
+      </tr>
+
+      <tr>
+        <td>{{ PI }} </td>
+        <td>number:'1.0-2'</td>
+        <td>{{ PI | number:'1.0-2' }} </td>
+      </tr>
+
+      <tr>
+        <td>{{ myNum }} </td>
+        <td>percent</td>
+        <td>{{ myNum | percent }} </td>
+      </tr>
+
+      <tr>
+        <td>{{ myNum }} </td>
+        <td>percent:'2.2-2'</td>
+        <td>{{ myNum | percent:'2.2-2' }} </td>
+      </tr>
+
+      <tr>
+        <td>{{ salary }} </td>
+        <td>currency</td>
+        <td>{{ salary | currency }} </td>
+      </tr>
+
+      <tr>
+        <td>{{ salary }} </td>
+        <td>currency:'EUR'</td>
+        <td>{{ salary | currency:'EUR' }} </td>
+      </tr>
+
+      <tr>
+        <td>{{ salary }} </td>
+        <td>currency:'EUR':'code'</td>
+        <td>{{ salary | currency:'EUR':'code' }} </td>
+      </tr>
+
+      <tr>
+        <td>{{ salary }} </td>
+        <td>currency:'EUR':'symbol':'4.0-0'</td>
+        <td>{{ salary | currency:'EUR':'symbol':'4.0-0' }} </td>
+      </tr>
+
+      <tr>
+        <td> {{ nerd }} </td>
+        <td>json</td>
+        <td>
+          <pre>{{ nerd | json }} </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td> {{ promiseValue }} </td>
+        <td>json</td>
+        <td>
+          <pre>{{ promiseValue | json }} </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td> {{ promiseValue }} </td>
+        <td>async</td>
+        <td>
+          <pre>{{ promiseValue | async }} </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td> {{ myDate }} </td>
+        <td>date</td>
+        <td>
+          <pre>{{ myDate | date }} </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td> {{ myDate }} </td>
+        <td>date:'medium'</td>
+        <td>
+          <pre>{{ myDate | date:'medium' }} </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td> {{ myDate }} </td>
+        <td>date:'EEE, d of LLL of yyyy'</td>
+        <td>
+          <pre>{{ myDate | date:'EEE, d of LLL of yyyy' }} </pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td>YouTube video</td>
+        <td></td>
+        <td><iframe width="560" height="315" [src]="video | safeDOM:'https://www.youtube.com/embed/'" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </td>
+      </tr>
+
+      <tr>
+        <td> My password: </td>
+        <td>
+          encrypt:{{ enable }}
+          <button class="btn btn-info" (click)="enable = !enable">
+            <p *ngIf="enable" class="mb-0">Show password</p>
+            <p *ngIf="!enable" class="mb-0">Hide password</p>
+          </button>
+        </td>
+        <td>{{ password | encrypt:enable }} </td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</div>
